@@ -13,3 +13,14 @@ cursor.execute("""
     )
 """)
 db.commit()
+
+def create_account():
+    name = input("Enter your name: ")
+    balance = float(input("Enter initial balance: "))
+
+    insert_query = "INSERT INTO accounts (name, balance) VALUES (?, ?)"
+    values = (name, balance)
+    cursor.execute(insert_query, values)
+    db.commit()
+
+    print("Account created successfully!")
