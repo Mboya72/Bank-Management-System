@@ -77,3 +77,13 @@ def display_account():
         print("Balance:", account[2])
     else:
         print("Account not found!")
+        
+while True:
+    print("\nBank Management System")
+    print("1. Create Account")
+    print("2. Deposit")
+    print("3. Withdraw")
+    print("4. Display Account")
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
