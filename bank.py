@@ -87,3 +87,16 @@ while True:
     print("5. Exit")
 
     choice = input("Enter your choice: ")
+
+    if choice == '1':
+        create_account()
+    elif choice == '2':
+        deposit()
+    elif choice == '3':
+        withdraw()
+    elif choice == '4':
+        display_account()
+    elif choice == '5':
+        break
+    else:
+        print("Invalid choice!")
