@@ -63,3 +63,17 @@ def withdraw():
             print("Insufficient funds!")
     else:
         print("Account not found!")
+        
+def display_account():
+    account_id = int(input("Enter account ID: "))
+
+    select_query = "SELECT * FROM accounts WHERE id = ?"
+    cursor.execute(select_query, (account_id,))
+    account = cursor.fetchone()
+
+    if account is not None:
+        print("Account ID:", account[0])
+        print("Name:", account[1])
+        print("Balance:", account[2])
+    else:
+        print("Account not found!")
