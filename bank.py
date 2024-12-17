@@ -24,3 +24,21 @@ def create_account():
     db.commit()
 
     print("Account created successfully!")
+    
+def deposit():
+    account_id = int(input("Enter account ID: "))
+    amount = decimal.Decimal(input("Enter amount to deposit: "))
+
+    select_query = "SELECT * FROM accounts WHERE id = ?"
+    cursor.execute(select_query, (account_id,))
+    account = cursor.fetchone()
+
+    if account is not None:
+        new_balance = account[2] + amount
+        update_query = "UPDATE accounts SET balance = ? WHERE id = ?"
+        cursor.execute(update_query, (new_balance, account_id))
+        db.commit()
+
+        print("Deposit successful!")
+    else:
+        print("Account not found!")
