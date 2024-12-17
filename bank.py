@@ -42,3 +42,24 @@ def deposit():
         print("Deposit successful!")
     else:
         print("Account not found!")
+        
+def withdraw():
+    account_id = int(input("Enter account ID: "))
+    amount = decimal.Decimal(input("Enter amount to withdraw: "))
+
+    select_query = "SELECT * FROM accounts WHERE id = ?"
+    cursor.execute(select_query, (account_id,))
+    account = cursor.fetchone()
+
+    if account is not None:
+        if account[2] >= amount:
+            new_balance = account[2] - amount
+            update_query = "UPDATE accounts SET balance = ? WHERE id = ?"
+            cursor.execute(update_query, (new_balance, account_id))
+            db.commit()
+
+            print("Withdrawal successful!")
+        else:
+            print("Insufficient funds!")
+    else:
+        print("Account not found!")
