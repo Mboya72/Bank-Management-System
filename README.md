@@ -34,3 +34,34 @@ id (INTEGER, PRIMARY KEY AUTOINCREMENT): The unique identifier for each account.
 name (TEXT, NOT NULL): The name of the account holder.
 balance (DECIMAL, NOT NULL): The current balance of the account.
 ```
+## Usage
+```
+1. Create Account
+To create a new account:
+
+The user is prompted to enter their name.
+The user is prompted to enter the initial balance of the account.
+After successful creation, a confirmation message is displayed.
+2. Deposit
+To deposit money into an account:
+
+The user is prompted to enter the account ID.
+The user is prompted to enter the amount to deposit.
+If the account exists, the balance is updated accordingly, and a success message is displayed.
+If the account does not exist, an error message is displayed.
+3. Withdraw
+To withdraw money from an account:
+
+The user is prompted to enter the account ID.
+The user is prompted to enter the amount to withdraw.
+If the account exists and there are sufficient funds, the balance is updated, and a success message is displayed.
+If the account does not exist or if there are insufficient funds, an error message is displayed.
+4. Display Account
+To display account information:
+
+The user is prompted to enter the account ID.
+If the account exists, the account's ID, name, and balance are displayed.
+If the account does not exist, an error message is displayed.
+5. Exit
+The user can exit the program by choosing option 5 from the main menu.
+```
