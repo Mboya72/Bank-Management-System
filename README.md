@@ -26,3 +26,11 @@ Ensure you have Python 3.x installed on your machine.
 The sqlite3 library is included in Python's standard library, so no additional installation is required.
 
 Clone or download this repository to your local machine.
+
+## Database
+The system uses an SQLite database called bank.db to store account information. The database contains a single table, accounts, which has the following columns:
+```
+id (INTEGER, PRIMARY KEY AUTOINCREMENT): The unique identifier for each account.
+name (TEXT, NOT NULL): The name of the account holder.
+balance (DECIMAL, NOT NULL): The current balance of the account.
+```
