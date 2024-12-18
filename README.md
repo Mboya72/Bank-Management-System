@@ -66,7 +66,7 @@ If the account does not exist, an error message is displayed.
 The user can exit the program by choosing option 5 from the main menu.
 ```
 
-Example Usage
+## Example Usage
 ```
 bash
 Copy code
@@ -119,3 +119,6 @@ Account ID: 1
 Name: John Doe
 Balance: 1300
 ```
+
+## License
+
