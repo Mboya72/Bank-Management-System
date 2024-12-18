@@ -65,3 +65,57 @@ If the account does not exist, an error message is displayed.
 5. Exit
 The user can exit the program by choosing option 5 from the main menu.
 ```
+
+Example Usage
+```
+bash
+Copy code
+Bank Management System
+1. Create Account
+2. Deposit
+3. Withdraw
+4. Display Account
+5. Exit
+
+Enter your choice: 1
+Enter your name: John Doe
+Enter initial balance: 1000
+Account created successfully!
+
+Bank Management System
+1. Create Account
+2. Deposit
+3. Withdraw
+4. Display Account
+5. Exit
+
+Enter your choice: 2
+Enter account ID: 1
+Enter amount to deposit: 500
+Deposit successful!
+
+Bank Management System
+1. Create Account
+2. Deposit
+3. Withdraw
+4. Display Account
+5. Exit
+
+Enter your choice: 3
+Enter account ID: 1
+Enter amount to withdraw: 200
+Withdrawal successful!
+
+Bank Management System
+1. Create Account
+2. Deposit
+3. Withdraw
+4. Display Account
+5. Exit
+
+Enter your choice: 4
+Enter account ID: 1
+Account ID: 1
+Name: John Doe
+Balance: 1300
+```
