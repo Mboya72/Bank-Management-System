@@ -15,3 +15,14 @@ The balances are stored using the DECIMAL data type for better accuracy with fin
 
 **Display Account:** Displays the details of an account (ID, name, and balance) based on the account ID.
 
+## Technologies used
+1.python 3.12
+
+2.SQLite
+
+## Installation
+Ensure you have Python 3.x installed on your machine.
+
+The sqlite3 library is included in Python's standard library, so no additional installation is required.
+
+Clone or download this repository to your local machine.
