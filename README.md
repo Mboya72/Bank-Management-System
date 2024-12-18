@@ -1,4 +1,4 @@
-# <span style="color:#CC1512;"> Bank Management System</span>
+# Bank Management System
 ## Overview
 This is a simple command-line Bank Management System implemented using Python and SQLite. 
 
