@@ -83,6 +83,12 @@ def deposit():
         
 def withdraw():
     account_id = int(input("Enter account ID: "))
+    password = input("Enter your password: ")
+    
+    if not verify_password(account_id, password):
+        print("Incorrect password!")
+        return
+
     amount = decimal.Decimal(input("Enter amount to withdraw: "))
 
     amount = float(amount)
