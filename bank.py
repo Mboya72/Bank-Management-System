@@ -172,7 +172,9 @@ while True:
     print("2. Deposit")
     print("3. Withdraw")
     print("4. Display Account")
-    print("5. Exit")
+    print("5. Display All Accounts")
+    print("6. Delete Account")
+    print("7. Exit")
 
     choice = input("Enter your choice: ")
 
