@@ -112,6 +112,11 @@ def withdraw():
         
 def display_account():
     account_id = int(input("Enter account ID: "))
+    password = input("Enter your password: ")
+
+    if not verify_password(account_id, password):
+        print("Incorrect password!")
+        return
 
     select_query = "SELECT * FROM accounts WHERE id = ?"
     cursor.execute(select_query, (account_id,))
