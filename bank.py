@@ -5,6 +5,8 @@ import bcrypt
 
 db = sqlite3.connect('bank.db')
 
+print("Database Path:", os.path.abspath('bank.db'))
+
 cursor = db.cursor()
 
 cursor.execute("""
@@ -12,21 +14,47 @@ cursor.execute("""
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         balance DECIMAL NOT NULL
+        password TEXT NOT NULL
     )
 """)
 db.commit()
 
 def create_account():
-    name = input("Enter your name: ")
-    balance = float(input("Enter initial balance: "))
+    try:
+        name = input("Enter your name: ")
+        balance = float(input("Enter initial balance: "))
+        password = input("Enter a password: ")
 
-    insert_query = "INSERT INTO accounts (name, balance) VALUES (?, ?)"
-    values = (name, balance)
-    cursor.execute(insert_query, values)
-    db.commit()
+        # Hash the password before storing it
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-    print("Account created successfully!")
+        # Insert the new account into the database
+        insert_query = "INSERT INTO accounts (name, balance, password) VALUES (?, ?, ?)"
+        values = (name, balance, hashed_password)
+        cursor.execute(insert_query, values)
+        db.commit()
+
+
+        print("Account created successfully!")
     
+        display_all_accounts()
+        
+    except sqlite3.Error as e:
+        print("Error while creating account:", e)
+        db.rollback()
+
+def verify_password(account_id, password):
+    select_query = "SELECT password FROM accounts WHERE id = ?"
+    cursor.execute(select_query, (account_id,))
+    account = cursor.fetchone()
+
+    if account is not None:
+        stored_hash = account[0]
+        return bcrypt.checkpw(password.encode('utf-8'), stored_hash)
+    else:
+        print("Account not found!")
+        return False
+
 def deposit():
     account_id = int(input("Enter account ID: "))
     amount = decimal.Decimal(input("Enter amount to deposit: "))
