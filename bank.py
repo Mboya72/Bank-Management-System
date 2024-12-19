@@ -129,6 +129,16 @@ def display_account():
     else:
         print("Account not found!")
         
+def display_all_accounts():
+    cursor.execute("SELECT * FROM accounts")
+    accounts = cursor.fetchall()
+    if accounts:
+        print("\nAll Accounts:")
+        for account in accounts:
+            print(f"ID: {account[0]}, Name: {account[1]}")
+    else:
+        print("No accounts found.")
+        
 while True:
     print("\nBank Management System")
     print("1. Create Account")
