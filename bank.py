@@ -190,6 +190,7 @@ while True:
         delete_account()
     elif choice == '7':
         break
+    else: 
         print("Invalid choice!")
         
 db.close()
