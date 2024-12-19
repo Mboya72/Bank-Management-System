@@ -1,5 +1,7 @@
 import sqlite3
 import decimal
+import os
+import bcrypt 
 
 db = sqlite3.connect('bank.db')
 
