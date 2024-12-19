@@ -57,8 +57,14 @@ def verify_password(account_id, password):
 
 def deposit():
     account_id = int(input("Enter account ID: "))
-    amount = decimal.Decimal(input("Enter amount to deposit: "))
+    password = input("Enter your password: ")
 
+    if not verify_password(account_id, password):
+        print("Incorrect password!")
+        return
+        
+    amount = decimal.Decimal(input("Enter amount to deposit: "))
+        
     amount = float(amount)
 
     select_query = "SELECT * FROM accounts WHERE id = ?"
