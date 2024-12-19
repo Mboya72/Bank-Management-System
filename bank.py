@@ -158,6 +158,8 @@ while True:
     elif choice == '4':
         display_account()
     elif choice == '5':
+        display_all_accounts()
+    elif choice == '6':
         break
     else:
         print("Invalid choice!")
