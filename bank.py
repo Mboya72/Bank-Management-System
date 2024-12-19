@@ -187,8 +187,9 @@ while True:
     elif choice == '5':
         display_all_accounts()
     elif choice == '6':
+        delete_account()
+    elif choice == '7':
         break
-    else:
         print("Invalid choice!")
         
 db.close()
