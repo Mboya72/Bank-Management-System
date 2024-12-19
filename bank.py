@@ -29,6 +29,8 @@ def deposit():
     account_id = int(input("Enter account ID: "))
     amount = decimal.Decimal(input("Enter amount to deposit: "))
 
+    amount = float(amount)
+
     select_query = "SELECT * FROM accounts WHERE id = ?"
     cursor.execute(select_query, (account_id,))
     account = cursor.fetchone()
@@ -46,6 +48,8 @@ def deposit():
 def withdraw():
     account_id = int(input("Enter account ID: "))
     amount = decimal.Decimal(input("Enter amount to withdraw: "))
+
+    amount = float(amount)
 
     select_query = "SELECT * FROM accounts WHERE id = ?"
     cursor.execute(select_query, (account_id,))
