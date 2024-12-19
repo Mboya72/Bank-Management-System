@@ -13,7 +13,7 @@ cursor.execute("""
     CREATE TABLE IF NOT EXISTS accounts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
-        balance DECIMAL NOT NULL
+        balance DECIMAL NOT NULL,
         password TEXT NOT NULL
     )
 """)
