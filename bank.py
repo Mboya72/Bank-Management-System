@@ -139,6 +139,33 @@ def display_all_accounts():
     else:
         print("No accounts found.")
         
+def delete_account():
+    account_id = int(input("Enter account ID to delete: "))
+    password = input("Enter your password to confirm deletion: ")
+
+    # Verify the password before performing the operation
+    if not verify_password(account_id, password):
+        print("Incorrect password!")
+        return
+
+    # Check if the account exists
+    select_query = "SELECT * FROM accounts WHERE id = ?"
+    cursor.execute(select_query, (account_id,))
+    account = cursor.fetchone()
+
+    if account is not None:
+        confirm = input(f"Are you sure you want to delete account ID {account_id} (y/n)? ")
+        if confirm.lower() == 'y':
+            delete_query = "DELETE FROM accounts WHERE id = ?"
+            cursor.execute(delete_query, (account_id,))
+            db.commit()
+
+            print("Account deleted successfully!")
+        else:
+            print("Account deletion canceled.")
+    else:
+        print("Account not found!")
+        
 while True:
     print("\nBank Management System")
     print("1. Create Account")
